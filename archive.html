@@ -10,9 +10,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
 </head>
@@ -21,23 +23,81 @@
 <body>
 
 
-<nav class="navbar">
 
-    <a href="index.html" class="brand">
-        <img src="assets/images/logo-menu.svg" alt="NOVAULT">
-    </a>
+<nav class="retro-navbar">
 
-    <div class="links">
-        <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
-        <a href="archive.html">ARCHIVE</a>
-        <a href="contact.html">CONTACT</a>
-    </div>
+<div class="retro-navbar-top">
+
+
+<div class="retro-brand-area">
+
+<a href="index.html" class="retro-brand">
+<img src="assets/images/logo-menu.svg" alt="NOVAULT">
+</a>
+
+
+<div class="retro-status-info">
+
+<span id="current-date"></span>
+
+<span class="separator">·</span>
+
+<span id="current-region"></span>
+
+</div>
+
+
+</div>
+
+
+
+<div class="retro-search" onclick="comingSoon()">
+    <span id="search-text">Search</span>
+</div>
+
+
+
+</div>
+
+
+
+
+<div class="retro-navbar-menu">
+
+<a href="index.html" class="retro-btn">
+HOME
+</a>
+
+<a href="archive.html" class="retro-btn active">
+ARCHIVE
+</a>
+
+<a href="about.html" class="retro-btn">
+ABOUT
+</a>
+
+<a href="contact.html" class="retro-btn">
+CONTACT
+</a>
+
+</div>
+
 
 </nav>
 
 
-<section class="hero">
+
+
+
+
+
+<main class="archive-page">
+
+
+
+<header class="archive-page-header">
+
+<span>NOVAULT DATABASE</span>
 
 <h1>ARCHIVE</h1>
 
@@ -48,52 +108,229 @@ classic games, physical releases, and historical media.
 </p>
 
 
+</header>
 
-<div class="archive-card">
 
-    <div class="archive-header">
-        <span>NOVAULT ARCHIVE</span>
-        <h2>ENTRY #001</h2>
-    </div>
 
-    <div class="archive-content">
 
-        <img src="assets/images/gta-san-andreas-cover-pc.jpg"
-     alt="Grand Theft Auto: San Andreas Cover"
-     class="game-cover">
 
-        <div class="archive-info">
 
-            <h3>Grand Theft Auto: San Andreas</h3>
 
-            <p><strong>System:</strong> IBM PC compatible</p>
-            <p><strong>Region:</strong> USA</p>
-            <p><strong>Version:</strong> 1.0</p>
-            <p><strong>Edition:</strong> Original</p>
+<section class="archive-list">
 
-            <div class="status-preserved">
-                PRESERVED
-            </div>
 
-        </div>
 
-    </div>
 
-    <a href="archive/nv-0001.html" class="button">View Entry</a>
+
+<article class="archive-card">
+
+
+
+<div class="archive-header">
+
+<span>NOVAULT ARCHIVE</span>
+
+<h2>ENTRY #001</h2>
+
 
 </div>
+
+
+
+
+
+
+<div class="archive-content">
+
+
+<img 
+src="assets/images/gta-san-andreas-cover-pc.jpg"
+alt="Grand Theft Auto: San Andreas Cover"
+class="game-cover">
+
+
+
+
+
+<div class="archive-info">
+
+
+<h3>
+Grand Theft Auto: San Andreas
+</h3>
+
+
+<p>
+<strong>System:</strong> IBM PC compatible
+</p>
+
+
+<p>
+<strong>Region:</strong> USA
+</p>
+
+
+<p>
+<strong>Version:</strong> 1.0
+</p>
+
+
+<p>
+<strong>Edition:</strong> Original
+</p>
+
+
+
+<div class="status-preserved">
+
+PRESERVED
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<a href="archive/nv-0001.html" class="retro-cta">
+
+VIEW ENTRY
+
+</a>
+
+
+
+</article>
+
+
 
 
 
 </section>
 
 
+</main>
 
-<footer>
 
+
+
+
+
+
+
+<footer class="retro-footer">
+
+<p>
 © 2026 NOVAULT — Classic Game Preservation Project
+</p>
 
 </footer>
+
+
+
+
+
+
+
+<script>
+
+const dateElement = document.getElementById("current-date");
+const regionElement = document.getElementById("current-region");
+
+
+// DATA
+
+const now = new Date();
+
+dateElement.textContent = now.toLocaleDateString("en-GB", {
+
+day: "numeric",
+
+month: "long"
+
+});
+
+
+
+// COUNTRY
+
+regionElement.textContent = "Detecting...";
+
+
+fetch("https://ipwho.is/")
+
+.then(response => response.json())
+
+.then(data => {
+
+
+if(data.success){
+
+regionElement.textContent = data.country;
+
+}
+
+else{
+
+throw new Error();
+
+}
+
+
+})
+
+
+.catch(()=>{
+
+
+const regionNames = new Intl.DisplayNames(
+
+["en"],
+
+{type:"region"}
+
+);
+
+
+const userRegion =
+(navigator.language || "en-US")
+.split("-")[1] || "US";
+
+
+regionElement.textContent =
+regionNames.of(userRegion);
+
+
+});
+
+
+</script>
+
+
+<script>
+
+function comingSoon(){
+
+    const searchText = document.getElementById("search-text");
+
+    searchText.textContent = "COMING SOON";
+
+
+    setTimeout(() => {
+
+        searchText.textContent = "Search";
+
+    }, 2000);
+
+}
+
+</script>
 
 
 

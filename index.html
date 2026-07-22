@@ -19,42 +19,194 @@
 
 <body>
 
-<nav class="navbar">
 
-    <a href="index.html" class="brand">
+<!-- NAVBAR RETRÔ -->
+<nav class="retro-navbar">
+    <div class="retro-navbar-top">
+
+    <a href="index.html" class="retro-brand">
         <img src="assets/images/logo-menu.svg" alt="NOVAULT">
+
+        <div class="retro-status-info">
+    <span id="current-date"></span>
+    <span class="separator">.</span>
+    <span id="current-region"></span>
+</div>
     </a>
 
-    <div class="links">
-        <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
-        <a href="archive.html">ARCHIVE</a>
-        <a href="contact.html">CONTACT</a>
-    </div>
+    <div class="retro-search" onclick="comingSoon()">
+    <span id="search-text">Search</span>
+</div>
 
+</div>
+
+    <div class="retro-navbar-menu">
+        <a href="index.html" class="retro-btn active">HOME</a>
+        <a href="archive.html" class="retro-btn">ARCHIVE</a>
+        <a href="about.html" class="retro-btn">ABOUT</a>
+        <a href="contact.html" class="retro-btn">CONTACT</a>
+    </div>
 </nav>
 
-<section class="hero">
+<!-- HOME RETRÔ -->
+<main class="retro-home">
 
-<img src="assets/images/logo.svg" alt="NOVAULT Logo" class="logo">
+    <section class="retro-hero">
+        <div class="hero-left">
+            <img src="assets/images/logo-menu.svg" alt="NOVAULT" class="hero-logo">
 
-<p>
-Preserving classic gaming history through digital archiving
-and faithful media preservation.
-</p>
+            <h1>PRESERVE. DOCUMENT. REMEMBER.</h1>
 
-<a href="archive.html" class="button">
-Explore the Archive
-</a>
+            <p>
+                NOVAULT is a digital archive dedicated to preserving
+                classic video games, physical media, and the forgotten
+                details of gaming history.
+            </p>
 
-</section>
+            <a href="archive.html" class="retro-cta">
+                ENTER ARCHIVE
+            </a>
+        </div>
 
+        <div class="hero-right">
+            <div class="featured-card">
+                <span class="featured-label">LAST ENTRY</span>
 
-<footer>
-© 2026 NOVAULT — Classic Game Preservation Project
+                <img src="assets/images/gta-san-andreas-cover-pc.jpg"
+                     alt="GTA San Andreas"
+                     class="featured-cover">
+
+                <h2>NV-0001</h2>
+                <h3>Grand Theft Auto: San Andreas</h3>
+
+                <p>IBM PC compatible • USA • 2005</p>
+
+                <a href="archive/nv-0001.html" class="featured-button">
+                    OPEN ENTRY
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="retro-panels">
+        <a href="archive.html" class="panel-link">
+            <div class="retro-panel">
+                <h3>ARCHIVE</h3>
+                <p>Browse preserved entries</p>
+            </div>
+        </a>
+
+        <a href="about.html" class="panel-link">
+            <div class="retro-panel">
+                <h3>ABOUT</h3>
+                <p>Learn about the project</p>
+            </div>
+        </a>
+
+        <a href="contact.html" class="panel-link">
+            <div class="retro-panel">
+                <h3>CONTACT</h3>
+                <p>Get in touch</p>
+            </div>
+        </a>
+    </section>
+
+    <section class="retro-status">
+        <div class="status-bar">
+            <span>NOVAULT ONLINE</span>
+            <span>VERSION 1.0</span>
+            <span>1 PRESERVED ENTRY</span>
+        </div>
+    </section>
+
+</main>
+
+<footer class="retro-footer">
+    <p>© 2026 NOVAULT — Classic Game Preservation Project</p>
+    <p>
+        Website:
+        <a href="https://dkazul.github.io/novault/" target="_blank">
+            dkazul.github.io/novault
+        </a>
+    </p>
 </footer>
 
 
+
+<script>
+
+const dateElement = document.getElementById("current-date");
+const regionElement = document.getElementById("current-region");
+
+
+// DATA
+
+const now = new Date();
+
+dateElement.textContent = now.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long"
+});
+
+
+// PAÍS
+
+regionElement.textContent = "Detecting...";
+
+
+fetch("https://ipwho.is/")
+.then(response => response.json())
+.then(data => {
+
+    if (data.success) {
+        regionElement.textContent = data.country;
+    } else {
+        throw new Error();
+    }
+
+})
+.catch(() => {
+
+    // fallback usando idioma do navegador
+
+    const regionNames = new Intl.DisplayNames(
+        ["en"],
+        { type: "region" }
+    );
+
+    const userRegion =
+        (navigator.language || "en-US").split("-")[1] || "US";
+
+
+    regionElement.textContent =
+        regionNames.of(userRegion);
+
+});
+
+
+
+</script>
+
+<script>
+
+function comingSoon(){
+
+    const searchText = document.getElementById("search-text");
+
+    searchText.textContent = "COMING SOON";
+
+
+    setTimeout(() => {
+
+        searchText.textContent = "Search";
+
+    }, 2000);
+
+}
+
+</script>
+
 </body>
+
 
 </html>

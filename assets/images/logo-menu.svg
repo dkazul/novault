@@ -3,13 +3,13 @@
 
 <svg
    width="172.99901mm"
-   height="18.617008mm"
-   viewBox="0 0 172.99901 18.617008"
+   height="18.617004mm"
+   viewBox="0 0 172.99901 18.617004"
    version="1.1"
    id="svg1"
    xml:space="preserve"
    inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
-   sodipodi:docname="inomeado.svg"
+   sodipodi:docname="logo-menu.svg"
    inkscape:export-filename="novault sem fundo.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -36,19 +36,12 @@
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
-     inkscape:export-bgcolor="#ffffff00"><inkscape:page
-       x="6.8482022e-22"
-       y="0"
-       width="172.99901"
-       height="18.617008"
-       id="page2"
-       margin="0"
-       bleed="0" /></sodipodi:namedview><defs
+     inkscape:export-bgcolor="#ffffff00" /><defs
      id="defs1" /><g
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-18.500492,-49.6702)"><rect
+     transform="translate(-18.500493,-49.6702)"><rect
        style="display:none;opacity:1;fill:#f3f4f6;fill-opacity:1;stroke:#bfc5cc;stroke-width:3.011;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="rect208"
        width="186.98936"
@@ -57,12 +50,12 @@
        y="37.022274"
        ry="19.848034" /><text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.1371px;font-family:MicrogrammaDBolExt;-inkscape-font-specification:MicrogrammaDBolExt;writing-mode:lr-tb;direction:ltr;display:inline;fill:#2563eb;fill-opacity:1;stroke:#d7d6fe;stroke-width:0"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.1371px;font-family:MicrogrammaDBolExt;-inkscape-font-specification:MicrogrammaDBolExt;writing-mode:lr-tb;direction:ltr;display:inline;fill:#366621;fill-opacity:1;stroke:#d7d6fe;stroke-width:0"
        x="17.228441"
        y="68.022194"
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:MicrogrammaDBolExt;-inkscape-font-specification:MicrogrammaDBolExt;fill:#2563eb;fill-opacity:1;stroke-width:0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:MicrogrammaDBolExt;-inkscape-font-specification:MicrogrammaDBolExt;fill:#366621;fill-opacity:1;stroke-width:0"
          x="17.228441"
          y="68.022194">NOVAULT</tspan></text></g></svg>

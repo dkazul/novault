@@ -1,105 +1,473 @@
 body {
     margin: 0;
-    background: #0B0F14;
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("assets/images/guitar-hero-wallpapers.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     color: #F3F4F6;
     font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   RETRO XBOX 2004 NAVBAR
+========================= */
+
+.retro-navbar {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 18px 22px;
+    background: linear-gradient(
+        to bottom,
+        #d9d9d9 0%,
+        #bcbcbc 35%,
+        #8f8f8f 100%
+    );
+    border-radius: 28px;
+    border: 2px solid #5a5a5a;
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.7),
+        inset 0 -4px 8px rgba(0,0,0,0.35),
+        0 8px 18px rgba(0,0,0,0.55);
+}
+
+.retro-navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.retro-brand img {
+    width: 150px;
+    filter: drop-shadow(0 0 3px rgba(123,255,0,0.6));
+}
+
+.retro-search {
+    background: linear-gradient(to bottom, #f5f5f5, #cfcfcf);
+    border: 2px solid #7a7a7a;
+    border-radius: 18px;
+    padding: 6px 14px;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.9),
+        inset 0 -2px 3px rgba(0,0,0,0.15);
+}
+
+.retro-navbar-menu {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+    background: linear-gradient(to bottom, #2a2a2a, #111);
+    border-radius: 24px;
+    border: 2px solid #5f5f5f;
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.12),
+        inset 0 -3px 6px rgba(0,0,0,0.6);
+}
+
+.retro-btn {
+    padding: 12px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #dcdcdc;
+    background: linear-gradient(to bottom, #5a5a5a, #2f2f2f);
+    border: 2px solid #7a7a7a;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.25),
+        inset 0 -2px 3px rgba(0,0,0,0.45),
+        0 2px 5px rgba(0,0,0,0.45);
+    transition: all 0.2s ease;
+}
+
+.retro-btn:hover {
+    transform: translateY(-2px);
+    color: #fff;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.3),
+        inset 0 -2px 3px rgba(0,0,0,0.5),
+        0 5px 10px rgba(0,0,0,0.55);
+}
+
+.retro-btn.active {
+    background: linear-gradient(to bottom, #9cff00, #3f7f00);
+    color: #111;
+    border-color: #cfff8a;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.55),
+        inset 0 -2px 3px rgba(0,0,0,0.35),
+        0 0 12px rgba(123,255,0,0.75);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .retro-navbar {
+        margin: 12px;
+        padding: 14px;
+    }
+
+    .retro-navbar-top {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .retro-navbar-menu {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .retro-btn {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+    }
+}
+
+
+/* ========================================
+NOVAULT RETRO HOME — XBOX 2004 INSPIRED
+======================================== */
+
+.retro-home {
+max-width: 1200px;
+margin: 30px auto;
+padding: 0 20px;
+}
+
+.retro-hero {
+display: grid;
+grid-template-columns: 1.2fr 0.8fr;
+gap: 30px;
+background: linear-gradient(
+to bottom,
+#d9d9d9 0%,
+#bcbcbc 35%,
+#8f8f8f 100%
+);
+border-radius: 32px;
+padding: 35px;
+border: 2px solid #5a5a5a;
+box-shadow:
+inset 0 3px 6px rgba(255,255,255,0.7),
+inset 0 -4px 8px rgba(0,0,0,0.35),
+0 10px 25px rgba(0,0,0,0.55);
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* centraliza tudo horizontalmente */
+    text-align: center;  /* centraliza os textos */
+}
+
+.hero-logo {
+    width: 220px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 8px rgba(123,255,0,0.7));
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-left h1 {
+font-family: "Space Grotesk", sans-serif;
+font-size: 3rem;
+line-height: 1.1;
+color: #111;
+margin: 0 0 20px;
+text-shadow: 0 2px 2px rgba(255,255,255,0.4);
+}
+
+.hero-left p {
+color: #222;
+font-size: 1.1rem;
+line-height: 1.7;
+max-width: 520px;
+margin-bottom: 30px;
+}
+
+.retro-cta {
+display: inline-block;
+width: fit-content;
+padding: 14px 28px;
+background: linear-gradient(to bottom, #9cff00, #3f7f00);
+color: #111;
+text-decoration: none;
+font-family: "Space Grotesk", sans-serif;
+font-weight: 700;
+letter-spacing: 1px;
+border-radius: 14px;
+border: 2px solid #cfff8a;
+box-shadow:
+inset 0 2px 3px rgba(255,255,255,0.55),
+inset 0 -2px 3px rgba(0,0,0,0.35),
+0 0 12px rgba(123,255,0,0.75);
+transition: all 0.2s ease;
+}
+
+.retro-cta:hover {
+transform: translateY(-3px);
+box-shadow:
+inset 0 2px 3px rgba(255,255,255,0.6),
+inset 0 -2px 3px rgba(0,0,0,0.4),
+0 0 18px rgba(123,255,0,0.9);
+}
+
+.hero-right {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.featured-card {
+width: 100%;
+max-width: 340px;
+background: linear-gradient(to bottom, #2a2a2a, #111);
+border-radius: 24px;
+padding: 25px;
+border: 2px solid #5f5f5f;
+box-shadow:
+inset 0 2px 4px rgba(255,255,255,0.12),
+inset 0 -3px 6px rgba(0,0,0,0.6),
+0 8px 18px rgba(0,0,0,0.55);
+text-align: center;
+}
+
+.featured-label {
+display: inline-block;
+padding: 6px 12px;
+background: linear-gradient(to bottom, #9cff00, #3f7f00);
+color: #111;
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 1px;
+border-radius: 10px;
+margin-bottom: 18px;
+}
+
+.featured-cover {
+width: 100%;
+border-radius: 16px;
+border: 2px solid #6a6a6a;
+box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+margin-bottom: 18px;
+}
+
+.featured-card h2 {
+font-family: "Space Grotesk", sans-serif;
+color: #9cff00;
+font-size: 2rem;
+margin: 0 0 8px;
+}
+
+.featured-card h3 {
+color: #f3f4f6;
+font-size: 1.3rem;
+margin: 0 0 10px;
+}
+
+.featured-card p {
+color: #bfc5cc;
+font-size: 0.95rem;
+margin-bottom: 22px;
+}
+
+.featured-button {
+display: inline-block;
+width: 100%;
+padding: 12px 0;
+background: linear-gradient(to bottom, #5a5a5a, #2f2f2f);
+color: #f3f4f6;
+text-decoration: none;
+font-family: "Space Grotesk", sans-serif;
+font-weight: 700;
+letter-spacing: 1px;
+border-radius: 12px;
+border: 2px solid #7a7a7a;
+box-shadow:
+inset 0 2px 3px rgba(255,255,255,0.25),
+inset 0 -2px 3px rgba(0,0,0,0.45),
+0 2px 5px rgba(0,0,0,0.45);
+transition: all 0.2s ease;
+}
+
+.featured-button:hover {
+transform: translateY(-2px);
+background: linear-gradient(to bottom, #6a6a6a, #3a3a3a);
+}
+
+.retro-panels {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 22px;
+margin-top: 30px;
+}
+
+.panel-link {
+text-decoration: none;
+}
+
+.retro-panel {
+background: linear-gradient(
+to bottom,
+#d9d9d9 0%,
+#bcbcbc 35%,
+#8f8f8f 100%
+);
+border-radius: 24px;
+padding: 26px;
+border: 2px solid #5a5a5a;
+box-shadow:
+inset 0 3px 6px rgba(255,255,255,0.7),
+inset 0 -4px 8px rgba(0,0,0,0.35),
+0 6px 14px rgba(0,0,0,0.45);
+transition: all 0.2s ease;
+}
+
+.retro-panel:hover {
+transform: translateY(-4px);
+box-shadow:
+inset 0 3px 6px rgba(255,255,255,0.75),
+inset 0 -4px 8px rgba(0,0,0,0.4),
+0 10px 20px rgba(0,0,0,0.55);
+}
+
+.retro-panel h3 {
+font-family: "Space Grotesk", sans-serif;
+color: #111;
+font-size: 1.4rem;
+margin: 0 0 8px;
+}
+
+.retro-panel p {
+color: #222;
+margin: 0;
+}
+
+.retro-status {
+margin-top: 30px;
+}
+
+.status-bar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px 24px;
+background: linear-gradient(to bottom, #2a2a2a, #111);
+border-radius: 20px;
+border: 2px solid #5f5f5f;
+box-shadow:
+inset 0 2px 4px rgba(255,255,255,0.12),
+inset 0 -3px 6px rgba(0,0,0,0.6);
+font-family: "Space Grotesk", sans-serif;
+font-size: 0.9rem;
+font-weight: 700;
+letter-spacing: 1px;
+color: #9cff00;
+}
+
+.retro-footer {
+margin-top: 60px;
+padding: 30px 20px;
+text-align: center;
+background: linear-gradient(to bottom, #1a1a1a, #0b0f14);
+border-top: 2px solid #5f5f5f;
+}
+
+.retro-footer p {
+margin: 8px 0;
+color: #bfc5cc;
+}
+
+.retro-footer a {
+color: #9cff00;
+text-decoration: none;
+font-weight: 700;
+}
+
+.retro-footer a:hover {
+text-decoration: underline;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+.retro-hero {
+grid-template-columns: 1fr;
+text-align: center;
+}
+
+
+.hero-left {
+    align-items: center;
+}
+
+.hero-left p {
+    max-width: 100%;
+}
+
+.retro-panels {
+    grid-template-columns: 1fr;
+}
+
+.status-bar {
+    flex-direction: column;
+    gap: 8px;
     text-align: center;
 }
 
 
-/* NAVBAR */
+}
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 20px 40px;
-
-    border-bottom: 1px solid rgba(96,165,250,0.2);
+@media (max-width: 600px) {
+.retro-home {
+padding: 0 12px;
 }
 
 
-.brand img {
-    width: 130px;
-    height: auto;
+.retro-hero {
+    padding: 22px;
+    border-radius: 24px;
+}
+
+.hero-logo {
+    width: 180px;
+}
+
+.hero-left h1 {
+    font-size: 2.1rem;
+}
+
+.featured-card {
+    padding: 18px;
+}
+
+.retro-panel {
+    padding: 20px;
 }
 
 
-.links {
-    display: flex;
-    gap: 30px;
 }
 
 
-.links a {
-    color: #60A5FA;
-    text-decoration: none;
-
-    letter-spacing: 2px;
-    font-size: 14px;
-}
-
-
-.links a:hover {
-    color: white;
-}
-
-
-/* HOME / CONTENT */
-
-.hero {
-    max-width: 700px;
-    margin: 120px auto;
-}
-
-
-.logo {
-    width: 350px;
-    max-width: 80%;
-    height: auto;
-}
-
-
-h1 {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 4rem;
-    letter-spacing: 5px;
-    color: #60A5FA;
-}
-
-h2, h3 {
-    font-family: "Space Grotesk", sans-serif;
-}
-
-
-p {
-    color: #BFC5CC;
-    line-height: 1.7;
-    font-size: 1.1rem;
-}
-
-
-/* BUTTON */
-
-.button {
-    display: inline-block;
-
-    margin-top: 25px;
-    padding: 12px 25px;
-
-    border: 1px solid #2563EB;
-
-    color: white;
-    text-decoration: none;
-
-    border-radius: 6px;
-}
-
-
-.button:hover {
-    background: #2563EB;
-}
 
 
 /* ARCHIVE CARD */
@@ -218,18 +586,41 @@ footer {
     border: 1px solid rgba(96,165,250,0.2);
 }
 
-/* ABOUT PAGE */
+/* ========================================
+   ABOUT PAGE — NOVAULT ARCHIVE STYLE
+======================================== */
 
 
 .about-page {
 
-    max-width: 900px;
+    max-width: 950px;
 
-    margin: 100px auto;
+    margin: 70px auto;
 
     padding: 0 20px;
 
-    text-align: left;
+}
+
+
+
+.about-header {
+
+    background: linear-gradient(
+        to bottom,
+        #d9d9d9,
+        #8f8f8f
+    );
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    border: 2px solid #5a5a5a;
+
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.7),
+        inset 0 -4px 8px rgba(0,0,0,0.35),
+        0 10px 20px rgba(0,0,0,0.5);
 
 }
 
@@ -237,11 +628,15 @@ footer {
 
 .about-header span {
 
-    color: #93C5FD;
+    color: #3f7f00;
 
-    font-size: 0.85rem;
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 0.8rem;
 
     letter-spacing: 3px;
+
+    font-weight: 700;
 
 }
 
@@ -249,24 +644,63 @@ footer {
 
 .about-header h1 {
 
-    margin-top: 10px;
+    margin: 10px 0 0;
 
-    margin-bottom: 60px;
+    color: #111;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 3rem;
+
+    letter-spacing: 2px;
 
 }
 
 
 
 
+
+.about-content {
+
+    margin-top: 35px;
+
+    background: linear-gradient(
+        to bottom,
+        #2a2a2a,
+        #111
+    );
+
+    padding: 40px;
+
+    border-radius: 28px;
+
+    border: 2px solid #5f5f5f;
+
+    box-shadow:
+
+        inset 0 2px 4px rgba(255,255,255,0.12),
+
+        inset 0 -4px 8px rgba(0,0,0,0.7),
+
+        0 10px 25px rgba(0,0,0,0.55);
+
+}
+
+
+
+
+
 .about-content h2 {
 
-    margin-top: 50px;
+    margin-top: 45px;
 
     margin-bottom: 15px;
 
-    color: #60A5FA;
+    color: #9cff00;
 
     font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.5rem;
 
     letter-spacing: 1px;
 
@@ -274,36 +708,112 @@ footer {
 
 
 
-.about-content p {
+.about-content h2:first-child {
 
-    max-width: 750px;
-
-    line-height: 1.9;
+    margin-top: 0;
 
 }
 
-/* CONTACT PAGE */
+
+
+
+
+.about-content p {
+
+    max-width: 800px;
+
+    color: #d1d5db;
+
+    line-height: 1.9;
+
+    font-size: 1rem;
+
+}
+
+
+
+.about-content p::first-line {
+
+    color: #f3f4f6;
+
+}
+
+
+
+
+
+.about-content::before {
+
+    content: "NOVAULT DATABASE // ARCHIVE INFORMATION";
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #888;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+
+}
+
+/* ========================================
+   CONTACT PAGE — NOVAULT ARCHIVE STYLE
+======================================== */
 
 
 .contact-page {
 
-    max-width: 900px;
+    max-width: 950px;
 
-    margin: 100px auto;
+    margin: 70px auto;
 
     padding: 0 20px;
 
-    text-align: left;
+}
+
+
+
+
+.contact-header {
+
+    background: linear-gradient(
+        to bottom,
+        #d9d9d9,
+        #8f8f8f
+    );
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    border: 2px solid #5a5a5a;
+
+    box-shadow:
+
+        inset 0 3px 6px rgba(255,255,255,0.7),
+
+        inset 0 -4px 8px rgba(0,0,0,0.35),
+
+        0 10px 20px rgba(0,0,0,0.5);
 
 }
+
 
 
 
 .contact-header span {
 
-    color: #93C5FD;
+    color: #3f7f00;
 
-    font-size: 0.85rem;
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
 
     letter-spacing: 3px;
 
@@ -311,13 +821,75 @@ footer {
 
 
 
+
 .contact-header h1 {
 
-    margin-top: 10px;
+    margin: 10px 0 0;
 
-    margin-bottom: 60px;
+    color: #111;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 3rem;
+
+    letter-spacing: 2px;
 
 }
+
+
+
+
+
+.contact-content {
+
+    margin-top: 35px;
+
+    background: linear-gradient(
+        to bottom,
+        #2a2a2a,
+        #111
+    );
+
+
+    padding: 40px;
+
+    border-radius: 28px;
+
+    border: 2px solid #5f5f5f;
+
+
+    box-shadow:
+
+        inset 0 2px 4px rgba(255,255,255,0.12),
+
+        inset 0 -4px 8px rgba(0,0,0,0.7),
+
+        0 10px 25px rgba(0,0,0,0.55);
+
+}
+
+
+
+
+
+.contact-content::before {
+
+    content: "NOVAULT DATABASE // CONTACT INFORMATION";
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #888;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+
+}
+
 
 
 
@@ -328,15 +900,32 @@ footer {
 
     margin-bottom: 15px;
 
-    color: #60A5FA;
+
+    color: #9cff00;
+
 
     font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.5rem;
+
+    letter-spacing: 1px;
 
 }
 
 
 
+.contact-content h2:first-child {
+
+    margin-top: 0;
+
+}
+
+
+
+
 .contact-content p {
+
+    color: #d1d5db;
 
     line-height: 1.9;
 
@@ -345,18 +934,314 @@ footer {
 
 
 
+
 .contact-link {
 
-    color: #93C5FD;
+    color: #9cff00;
 
     text-decoration: none;
 
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 700;
+
 }
+
+
 
 
 
 .contact-link:hover {
 
     color: white;
+
+    text-decoration: underline;
+
+}
+
+/* ========================================
+STATUS INFO — DATA E PAÍS
+======================================== */
+
+.retro-navbar-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+}
+
+.retro-brand {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+text-decoration: none;
+flex-shrink: 0;
+}
+
+.retro-status-info {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: #111; /* preto */
+    text-shadow: none;
+}
+
+.retro-status-info .separator {
+opacity: 0.6;
+}
+
+.retro-status-info span {
+line-height: 1;
+}
+
+.retro-search {
+background: linear-gradient(to bottom, #f5f5f5, #cfcfcf);
+border: 2px solid #7a7a7a;
+border-radius: 18px;
+padding: 6px 14px;
+color: #333;
+font-size: 0.9rem;
+font-weight: 600;
+box-shadow:
+inset 0 2px 3px rgba(255,255,255,0.9),
+inset 0 -2px 3px rgba(0,0,0,0.15);
+flex-shrink: 0;
+}
+
+.retro-brand-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.retro-brand img {
+    width: 150px;
+}
+
+.retro-status-info {
+    margin-top: 5px;
+}
+
+/* ========================================
+   ARCHIVE PAGE — NOVAULT DATABASE
+======================================== */
+
+
+.archive-page {
+
+    max-width: 950px;
+
+    margin: 70px auto;
+
+    padding: 0 20px;
+
+}
+
+
+
+.archive-page-header {
+
+    background: linear-gradient(
+        to bottom,
+        #d9d9d9,
+        #8f8f8f
+    );
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    border: 2px solid #5a5a5a;
+
+    box-shadow:
+    inset 0 3px 6px rgba(255,255,255,.7),
+    inset 0 -4px 8px rgba(0,0,0,.35),
+    0 10px 20px rgba(0,0,0,.5);
+
+}
+
+
+
+.archive-page-header span {
+
+color:#3f7f00;
+
+font-family:"Space Grotesk";
+
+font-weight:700;
+
+letter-spacing:3px;
+
+font-size:.8rem;
+
+}
+
+
+
+.archive-page-header h1 {
+
+color:#111;
+
+font-family:"Space Grotesk";
+
+font-size:3rem;
+
+margin:10px 0;
+
+}
+
+
+
+.archive-page-header p {
+
+color:#222;
+
+line-height:1.7;
+
+}
+
+
+
+
+
+.archive-card {
+
+
+margin-top:35px;
+
+background:linear-gradient(
+to bottom,
+#2a2a2a,
+#111
+);
+
+
+padding:35px;
+
+border-radius:28px;
+
+border:2px solid #5f5f5f;
+
+
+box-shadow:
+
+inset 0 2px 4px rgba(255,255,255,.12),
+
+inset 0 -4px 8px rgba(0,0,0,.7),
+
+0 10px 25px rgba(0,0,0,.55);
+
+}
+
+
+
+
+
+.archive-header span {
+
+color:#888;
+
+font-family:"Space Grotesk";
+
+font-size:.75rem;
+
+letter-spacing:2px;
+
+}
+
+
+
+.archive-header h2 {
+
+color:#9cff00;
+
+font-family:"Space Grotesk";
+
+}
+
+
+
+
+
+.archive-content {
+
+display:flex;
+
+gap:30px;
+
+margin-top:25px;
+
+}
+
+
+
+
+.game-cover {
+
+width:180px;
+
+border-radius:12px;
+
+border:2px solid #666;
+
+}
+
+
+
+
+
+.archive-info h3 {
+
+color:white;
+
+font-family:"Space Grotesk";
+
+}
+
+
+
+.archive-info p {
+
+color:#d1d5db;
+
+}
+
+
+
+
+
+.archive-info strong {
+
+color:#9cff00;
+
+}
+
+
+
+
+.status-preserved {
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:8px 16px;
+
+border-radius:20px;
+
+border:1px solid #9cff00;
+
+color:#9cff00;
+
+font-family:"Space Grotesk";
+
+font-weight:700;
+
+letter-spacing:2px;
 
 }

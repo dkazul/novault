@@ -21,24 +21,36 @@
 <body>
 
 
-<nav class="navbar">
+<nav class="retro-navbar">
+    <div class="retro-navbar-top">
 
-    <a href="index.html" class="brand">
-        <img src="assets/images/logo-menu.svg" alt="NOVAULT">
-    </a>
+    <div class="retro-brand-area">
 
+        <a href="index.html" class="retro-brand">
+            <img src="assets/images/logo-menu.svg" alt="NOVAULT">
+        </a>
 
-    <div class="links">
-
-        <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
-        <a href="archive.html">ARCHIVE</a>
-        <a href="contact.html">CONTACT</a>
+        <div class="retro-status-info">
+            <span id="current-date"></span>
+            <span class="separator">·</span>
+            <span id="current-region"></span>
+        </div>
 
     </div>
 
-</nav>
+    <div class="retro-search" onclick="comingSoon()">
+    <span id="search-text">Search</span>
+</div>
 
+</div>
+
+    <div class="retro-navbar-menu">
+        <a href="index.html" class="retro-btn">HOME</a>
+        <a href="archive.html" class="retro-btn">ARCHIVE</a>
+        <a href="about.html" class="retro-btn active">ABOUT</a>
+        <a href="contact.html" class="retro-btn">CONTACT</a>
+    </div>
+</nav>
 
 
 
@@ -57,7 +69,6 @@
 
 
 <section class="about-content">
-
 
 <h2>
 What is NOVAULT?
@@ -79,7 +90,6 @@ artwork, and historical documentation.
 
 
 
-
 <h2>
 Our Mission
 </h2>
@@ -94,7 +104,6 @@ technical details for future reference.
 
 
 
-
 <h2>
 Why Preservation Matters
 </h2>
@@ -105,7 +114,6 @@ Games are more than software. They are cultural artifacts that
 represent different eras of technology, design, and entertainment.
 Physical releases contain details that are often forgotten over time.
 </p>
-
 
 
 
@@ -132,7 +140,6 @@ What We Archive
 
 
 
-
 <h2>
 Project Status
 </h2>
@@ -144,14 +151,13 @@ NOVAULT Version: 1.0
 
 <br><br>
 
-Archive Entries: 1
+Archive Entries: In Development
 
 <br>
 
 Current Status: Expanding
 
 </p>
-
 
 
 </section>
@@ -163,12 +169,83 @@ Current Status: Expanding
 
 
 
-<footer>
+<footer class="retro-footer">
 
-© 2026 NOVAULT — Classic Game Preservation Project
+<p>© 2026 NOVAULT — Classic Game Preservation Project</p>
 
 </footer>
 
 
+<script>
+
+const dateElement = document.getElementById("current-date");
+const regionElement = document.getElementById("current-region");
+
+
+// DATA
+
+const now = new Date();
+
+dateElement.textContent = now.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long"
+});
+
+
+// PAÍS
+
+regionElement.textContent = "Detecting...";
+
+
+fetch("https://ipwho.is/")
+.then(response => response.json())
+.then(data => {
+
+    if (data.success) {
+        regionElement.textContent = data.country;
+    } else {
+        throw new Error();
+    }
+
+})
+.catch(() => {
+
+    // fallback usando idioma do navegador
+
+    const regionNames = new Intl.DisplayNames(
+        ["en"],
+        { type: "region" }
+    );
+
+    const userRegion =
+        (navigator.language || "en-US").split("-")[1] || "US";
+
+
+    regionElement.textContent =
+        regionNames.of(userRegion);
+
+});
+
+
+</script>
+
+<script>
+
+function comingSoon(){
+
+    const searchText = document.getElementById("search-text");
+
+    searchText.textContent = "COMING SOON";
+
+
+    setTimeout(() => {
+
+        searchText.textContent = "Search";
+
+    }, 2000);
+
+}
+
+</script>
 
 </body>
